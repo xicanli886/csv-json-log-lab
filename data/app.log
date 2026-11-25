@@ -1,0 +1,11 @@
+2026-11-20T10:15:01+08:00 INFO  etl.start rows=16 source=sales.csv
+2026-11-20T10:15:02+08:00 INFO  etl.read source=orders.json orders=11
+2026-11-20T10:15:03+08:00 WARN  order.invalid order_id=A1010 reason=qty_not_int
+2026-11-20T10:15:03+08:00 ERROR order.load_failed order_id=A1011 reason=negative_qty retry=0
+2026-11-20T10:15:04+08:00 INFO  etl.write file=summary.json bytes=2048
+
+这是一行没有时间戳的脏日志，解析器会把它计入 unparsed
+
+2026-11-20T10:15:05+08:00 DEBUG cache.hit key=region:华东
+2026-11-20T10:15:06+08:00 ERROR etl.abort reason=disk_full path=/data/out
+2026-11-20T10:15:07+08:00 INFO  etl.done ok=true
